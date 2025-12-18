@@ -66,7 +66,7 @@ const Rooms = () => {
       id: 2,
       title: "Deluxe",
       image: "/images/del.jpeg",
-      roomSize: "21 m²",
+      roomSize: "25 m²",
       roomSizeSqFt: "226 ft²",
       beds: [
         { type: "kasur king size", count: 1 },
@@ -86,7 +86,7 @@ const Rooms = () => {
       id: 4,
       title: "Paviliun Ekonomi",
       image: "/images/paveko.jpeg",
-      roomSize: "20 m²",
+      roomSize: "40 m²",
       roomSizeSqFt: "215 ft²",
       beds: [
         { type: "kasur king size", count: 1 },
@@ -97,7 +97,7 @@ const Rooms = () => {
       id: 5,
       title: "Paviliun Budget",
       image: "/images/pbud.jpeg",
-      roomSize: "40 m²",
+      roomSize: "20 m²",
       roomSizeSqFt: "431 ft²",
       beds: [
         { type: "kasur single", count: 2 },
