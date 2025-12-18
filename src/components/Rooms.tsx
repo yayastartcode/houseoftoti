@@ -19,41 +19,44 @@ const Rooms = () => {
   // Function to handle WhatsApp booking for specific room
   const handleRoomWhatsApp = (room: Room) => {
     const whatsappNumber = "6281804111552"; // Format international
-    
+
     // Format message with room details
     let message = `Halo, saya ingin memesan kamar di House of ToTi:\n\n`;
     message += `🏨 Tipe Kamar: ${room.title}`;
-    
+
     if (room.subtitle) {
       message += ` ${room.subtitle}`;
     }
     message += `\n`;
-    
+
     if (room.roomSize) {
       message += `📐 Ukuran: ${room.roomSize} (${room.roomSizeSqFt})\n`;
     }
-    
+
     message += `🛏️ Fasilitas Tempat Tidur:\n`;
     room.beds.forEach((bed) => {
       message += `   - ${bed.count} ${bed.type}\n`;
     });
-    
+
     message += `\nMohon informasi ketersediaan dan harganya. Terima kasih! 🙏`;
-    
+
     // Encode message for URL
     const encodedMessage = encodeURIComponent(message);
-    
+
     // Open WhatsApp with message
-    window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, "_blank");
+    window.open(
+      `https://wa.me/${whatsappNumber}?text=${encodedMessage}`,
+      "_blank"
+    );
   };
 
   const rooms: Room[] = [
     {
       id: 1,
-      title: "Suite",
-      image: "/images/suite.jpg",
-      roomSize: "24 m²",
-      roomSizeSqFt: "258 ft²",
+      title: "Suite Deluxe",
+      image: "/images/suidel.jpeg",
+      roomSize: "25 m²",
+      roomSizeSqFt: "269 ft²",
       beds: [
         { type: "kasur king size", count: 1 },
         { type: "kasur king size", count: 1 },
@@ -61,9 +64,8 @@ const Rooms = () => {
     },
     {
       id: 2,
-      title: "Kamar Deluxe",
-      subtitle: "(Deluxe)",
-      image: "/images/deluxe.webp",
+      title: "Deluxe",
+      image: "/images/del.jpeg",
       roomSize: "21 m²",
       roomSizeSqFt: "226 ft²",
       beds: [
@@ -73,42 +75,17 @@ const Rooms = () => {
     },
     {
       id: 3,
-      title: "Suite Deluxe",
-      subtitle: "(Deluxe Suite)",
-      image: "/images/sudel.webp",
-      roomSize: "25 m²",
-      roomSizeSqFt: "269 ft²",
+      title: "Standard",
+      image: "/images/std.jpeg",
       beds: [
-        { type: "kasur king size", count: 1 },
-        { type: "kasur king size", count: 1 },
+        { type: "kasur single", count: 1 },
+        { type: "kasur single", count: 1 },
       ],
     },
     {
       id: 4,
-      title: "Kamar Standard Single",
-      subtitle: "(Standard Single Room)",
-      image: "/images/single.jpg",
-      beds: [
-        { type: "kasur double", count: 1 },
-        { type: "kasur double", count: 1 },
-      ],
-    },
-    {
-      id: 5,
-      title: "Standard 1-Bed Room",
-      subtitle: "(Standard 1-bed Room)",
-      image: "/images/s1bed.webp",
-      roomSize: "15 m²",
-      roomSizeSqFt: "161 ft²",
-      beds: [
-        { type: "kasur single", count: 1 },
-        { type: "kasur single", count: 1 },
-      ],
-    },
-    {
-      id: 6,
-      title: "Pavilium Ekonomi",
-      image: "/images/pavek.webp",
+      title: "Paviliun Ekonomi",
+      image: "/images/paveko.jpeg",
       roomSize: "20 m²",
       roomSizeSqFt: "215 ft²",
       beds: [
@@ -117,47 +94,14 @@ const Rooms = () => {
       ],
     },
     {
-      id: 7,
-      title: "Budget Double",
-      image: "/images/budob.jpg",
-      roomSize: "13 m²",
-      roomSizeSqFt: "140 ft²",
-      beds: [
-        { type: "kasur single", count: 2 },
-        { type: "kasur single", count: 2 },
-      ],
-    },
-    {
-      id: 8,
-      title: "Pavilium Budget",
-      image: "/images/pavbud.jpeg",
+      id: 5,
+      title: "Paviliun Budget",
+      image: "/images/pbud.jpeg",
       roomSize: "40 m²",
       roomSizeSqFt: "431 ft²",
       beds: [
-        { type: "kasur king size", count: 1 },
-        { type: "kasur king size", count: 1 },
-      ],
-    },
-    {
-      id: 9,
-      title: "Kamar Standard",
-      subtitle: "(Standard)",
-      image: "/images/std.webp",
-      beds: [
-        { type: "kasur single", count: 1 },
-        { type: "kasur single", count: 1 },
-      ],
-    },
-    {
-      id: 10,
-      title: "Deluxe Suite Room",
-      subtitle: "(Deluxe Suite room)",
-      image: "/images/delsu.webp",
-      roomSize: "25 m²",
-      roomSizeSqFt: "269 ft²",
-      beds: [
-        { type: "kasur king size", count: 1 },
-        { type: "kasur king size", count: 1 },
+        { type: "kasur single", count: 2 },
+        { type: "kasur single", count: 2 },
       ],
     },
   ];
@@ -240,7 +184,7 @@ const Rooms = () => {
 
                       {/* CTA Button */}
                       <div className="mt-4">
-                        <Button 
+                        <Button
                           onClick={() => handleRoomWhatsApp(room)}
                           className="w-full bg-blue-600 hover:bg-blue-700 text-white"
                         >
